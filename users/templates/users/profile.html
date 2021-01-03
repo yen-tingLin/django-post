@@ -1,7 +1,16 @@
 {% extends "blog/base.html" %}
 {% load crispy_forms_tags %}
-{% block content %}
-	<!-- "user" represent hte current logged in user which is build in django,
-		 we don't have to pass this argument in -->
-	<h1>{{ user.username }}</h1>
+{% block content %}  
+	<div class="content-section">
+	  <div class="media">
+	    <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+	    <div class="media-body">
+		  <!-- "user" represent hte current logged in user which is build in django,
+		 		we don't have to pass this argument in -->
+	      <h2 class="account-heading">{{ user.username }}</h2>
+	      <p class="text-secondary">{{ user.email }}</p>
+	    </div>
+	  </div>
+	  <!-- FORM HERE -->
+	</div>
 {% endblock content %}

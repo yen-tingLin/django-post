@@ -7,7 +7,8 @@ class Post(models.Model):
 	content = models.TextField()
 	date_published = models.DateTimeField(default=timezone.now)
 	# ont-to-many relationship between user and posts
-	# if one user is deleted, his posts wil be deleted as well
+	# if one user is deleted, his posts wil be deleted as well;
+	# but if the post is deleted, the user won't be deleted
 	author = models.ForeignKey(User, on_delete=models.CASCADE)
 
 	def __str__(self):

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -122,9 +123,19 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# full path of directory for django to store uploaded media files
+# "BASE_DIR" : project-based directory
+# MEDIA_ROOT : BASE_DIR/media
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL : how we are going to access images in the browser, 
+#             that is  /media/profile_pic/{name_of_the_image}
+MEDIA_URL = '/media/'
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'blog-home'
 # for login_required in profile page
 LOGIN_URL = 'blog-login'
+
+
 
